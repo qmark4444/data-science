@@ -17,6 +17,10 @@ redo the above with the new nums[0], until no change, then move on to the next i
 --- NOT WORK
 =========================================================================
 
+find the max of [1:n] if it is not the last one, swap the max with the last
+now the problem is reduced to [1:n-1]
+repeat 
+total n-1 swaps, but operation is O(n^2)
 ============================================================
 Other sort Algo:
 (1) Divide and Conquer = nlog(n)
