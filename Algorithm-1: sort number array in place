@@ -1,0 +1,23 @@
+This method only applys to distinct number array
+nums = [10, 8, 2, 12, 9, 11]
+
+initial thought: create a new array, where a[i] = i, and a.length = max of nums + 1
+a = [null, null, 2 (index=2), null, ..., 8 (index=8), 9, 10, 11, 12]
+
+But since it must be in-place, this initial thought however inspired
+[1]
+Start from index 0, if nums[0] isn't 0, then compare it with the number at the index nums[0], nums[nums[0]]
+[2]
+If nums[0] > nums.length, then compare it with the last number, nums[length-1]????
+the number at mod(length)?
+[3]
+If nums[0] is larger, then swap two numbers, otherwise no change?
+[4]
+redo the above with the new nums[0], until no change, then move on to the next index
+--- NOT WORK
+=========================================================================
+
+============================================================
+Other sort Algo:
+(1) Divide and Conquer = nlog(n)
+(2) Hashmap
