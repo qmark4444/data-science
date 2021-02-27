@@ -25,3 +25,6 @@ total n-1 swaps, but operation is O(n^2)
 Other sort Algo:
 (1) Divide and Conquer = nlog(n)
 (2) Hashmap
+(3) dynamic programming: (0, i-1) (i) --- (0, i-1) is already sorted, dp[i-1]=swap numbers
+    if (nums[i] > nums[i-1]) then no swap, dp[i]=dp[i-1]
+    elseif (nums[i] > nums[j-1] but nums[i] < nums[j]) then dp[i]=dp[i-1]+(i-j)
