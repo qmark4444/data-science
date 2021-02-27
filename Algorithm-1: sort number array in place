@@ -1,3 +1,5 @@
+Minimum Number of Swaps Required to Sort a Distinct Number Array?
+
 This method only applys to distinct number array
 nums = [10, 8, 2, 12, 9, 11]
 
@@ -25,6 +27,13 @@ total n-1 swaps, but operation is O(n^2)
 Other sort Algo:
 (1) Divide and Conquer = nlog(n)
 (2) Hashmap
-(3) dynamic programming: (0, i-1) (i) --- (0, i-1) is already sorted, dp[i-1]=swap numbers
-    if (nums[i] > nums[i-1]) then no swap, dp[i]=dp[i-1]
-    elseif (nums[i] > nums[j-1] but nums[i] < nums[j]) then dp[i]=dp[i-1]+(i-j)
+(3) dynamic programming-1: (0, i-1) (i) --- (0, i-1) is already sorted -- WRONG? if (0, i-1) is already sorted, this is the same as bubble sort????????????
+    dp[i-1]=swap numbers
+    if (nums[i] > nums[i-1]) then no swap, dp[i]=dp[i-1] --- this is where MIN comes into play
+    elseif (nums[i] > nums[j-1] but nums[i] < nums[j]) then dp[i]=dp[i-1]+(i-j) --- this requires change the original order of array, NOT RIGHT?????
+     
+(4) dynamic programming-2: (i, j) = (i, k-1) (k, j) --- no change of original array   
+    minSwap(i, j) - related to minSwap(i, k-1), minSwap(k, j)??????
+    dp[i][j] = MIN( dp[i][k-1] + dp[k][j] + swap2 ), for k = i+1 to j-1    (or i to j? NO!!!! this won't reduce dp size, [i][j] = [i][j])
+    swap2 = number of swaps of whatever is smaller in (k, j) with the larger in (i, k-1) --- BUT can't swap with whatever is larger!!!!!!
+    for any nums[p] in (k, j), find the min(nums[m] > nums[p]) in (i, k-1) -- if exists (min != nums[p]), then swap2++
