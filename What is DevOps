@@ -1,0 +1,10 @@
+[0] create feature/stories/subtasks in sprint JIRA
+[1] dev in local (may contain special dependencies)
+[2] build = bundle, packaging, minify, (bundle dependencies/libraries)
+    e.g JS build tools like Webpack, Grunt, Babel, Bower, npm, ...
+    Java build tools like Maven
+    Cloud Computing, Azure Pipeline, integrate different build tools
+[3] push to Git branch (source control repo)
+[4] deploy release to environment 
+
+Actually what I have done with Heroku is a DevOps process
